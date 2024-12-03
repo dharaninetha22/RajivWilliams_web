@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Slider</title>
+  <!-- Include Slick CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+  <style>
+    /* Custom Styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color: #f9f9f9;
+    }
+    .slider-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      height: 100vh;
+    }
+    .content-box {
+      flex: 1;
+      padding: 20px;
+    }
+    .hero-image-wrapper {
+      flex: 1;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .shape-background img {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      width: 106%;
+    }
+    .hero-image img {
+      z-index: 2;
+      width: 80%;
+      border-radius: 20px;
+    }
+    .hero-button {
+      margin-top: 20px;
+      background-color: #0F63A5;
+      color: #fff;
+      padding: 10px 30px;
+      font-size: 16px;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+    }
+    .hero-button:hover {
+      background-color: #fff;
+      color: #0F63A5;
+    }
+    .spancolor {
+      color: #ff4081;
+    }
+    .animated-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff4081;
+      animation: fadeIn 2s infinite alternate;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0.5;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slider-container">
+    <div class="slider"></div>
+  </div>
+
+  <!-- Include Slick JS -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    // JSON Data
+    const sliderData = {
+      "slider": [
+        {
+          "title": "Exclusive Collection in Our Online Store",
+          "subtitle": "Best for your categories",
+          "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
+          "discountPrice": "140.00",
+          "currency": "₹",
+          "buttonText": "Shop Now",
+          "heroImage": "heroone.png",
+          "shapeImage": "shape.png",
+          "lineShape": "lineshape.png",
+          "animationClass": "animated-text",
+          "highlightColor": "#ff4081"
+        },
+        {
+          "title": "Exclusive Collection in Our Online Store",
+          "subtitle": "Best for your categories",
+          "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
+          "discountPrice": "140.00",
+          "currency": "₹",
+          "buttonText": "Shop Now",
+          "heroImage": "heroone.png",
+          "shapeImage": "shape.png",
+          "lineShape": "lineshape.png",
+          "animationClass": "animated-text",
+          "highlightColor": "#ff4081"
+        },
+        {
+          "title": "Exclusive Collection in Our Online Store",
+          "subtitle": "Best for your categories",
+          "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
+          "discountPrice": "140.00",
+          "currency": "₹",
+          "buttonText": "Shop Now",
+          "heroImage": "heroone.png",
+          "shapeImage": "shape.png",
+          "lineShape": "lineshape.png",
+          "animationClass": "animated-text",
+          "highlightColor": "#ff4081"
+        }
+      ]
+    };
+
+    // Dynamically populate slider
+    $(document).ready(function() {
+      const sliderContainer = $('.slider');
+
+      sliderData.slider.forEach(item => {
+        const sliderItem = `
+          <div class="slider-item">
+            <div class="content-box">
+              <h6 style="color: ${item.highlightColor}; font-weight: 600;">${item.subtitle}</h6>
+              <h2 style="font-weight: 600;">${item.title.replace('Online Store', '<span class="spancolor">Our Online</span> Store')}</h2>
+              <p>${item.description}</p>
+              <div style="display: flex; align-items: center; gap: 20px; margin-top: 20px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div>
+                    <span style="font-size: 40px;">${item.currency}</span>
+                  </div>
+                  <div>
+                    <div class="${item.animationClass}">Discount Price</div>
+                    <h5>${item.discountPrice}</h5>
+                  </div>
+                </div>
+                <div><img src="${item.lineShape}" alt="Line Shape" style="height: auto;" /></div>
+                <button class="hero-button">${item.buttonText}</button>
+              </div>
+            </div>
+            <div class="hero-image-wrapper">
+              <div class="shape-background">
+                <img src="${item.shapeImage}" alt="Shape Background" />
+              </div>
+              <div class="hero-image">
+                <img src="${item.heroImage}" alt="Fashion Trends" />
+              </div>
+            </div>
+          </div>
+        `;
+        sliderContainer.append(sliderItem);
+      });
+
+      // Initialize the slick carousel
+      $('.slider').slick({
+        dots: true,
+        arrows: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnHover: false
+      });
+    });
+  </script>
+
+</body>
+</html>
