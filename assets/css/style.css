@@ -2169,8 +2169,9 @@ button.bottom-top-button {
 .my-work-port-main {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     margin-bottom: 60px;
+    gap: 40px;
 }
 .wide {
     max-width: 630px;
@@ -3408,3 +3409,59 @@ color: #0F63A5;
 margin-top: 15px;
 color: white;
 }
+
+
+.float-left {
+    float: left;
+}
+.float-text {
+    width: 20px;
+    position: fixed;
+    z-index: 1000;
+    margin-left: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 12px;
+    top: 50%;
+    left: 15px;
+    transform: translate(-50%, -50%);
+}
+
+.float-text span{
+    margin-left: -5px;
+    margin-top: 20px;
+    writing-mode: vertical-rl;
+    letter-spacing: .75px;
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    color: #222;
+}
+
+.float-text span{
+    color: #fff;
+}
+.de_social-icons a {
+    display: inline-block; /* Ensures the links are treated as blocks */
+    margin-bottom: 10px; /* Adds spacing between icons */
+    text-decoration: none; /* Removes underline from links */
+}
+
+
+/* .illustration {
+    transition: transform .1s ease-in-out 0s, opacity ease-in-out .1s;
+  }
+  
+  .illustration.active {
+    transition: transform .1s ease-in-out 0s, opacity ease-in-out .1s;
+  }
+  
+.illustration > img,
+.illustration> img {
+    animation: kenburns 10000ms linear 0s infinite alternate;
+  } */
+  
+
+  .fa-lg{
+    font-size: 17px;
+  }
