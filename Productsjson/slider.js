@@ -1,7 +1,7 @@
 const sliderData = {
     "slider": [
         {
-            "title": "Exclusive Collection in Our Online Store",
+            "title": "Coming Soon",
             "subtitle": "Best for your categories",
             "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
             "discountPrice": "140.00",
@@ -14,7 +14,7 @@ const sliderData = {
             "highlightColor": "#0F63A5"
           },
           {
-            "title": "Exclusive Collection in Our Online Store",
+            "title": "Coming Soon",
             "subtitle": "Best for your categories",
             "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
             "discountPrice": "140.00",
@@ -27,7 +27,7 @@ const sliderData = {
             "highlightColor": "#0F63A5"
           },
           {
-            "title": "Exclusive Collection in Our Online Store",
+            "title": "Coming Soon",
             "subtitle": "Best for your categories",
             "description": "Discover our exclusive collection available only in our online store. Shop now for unique and premium items that you won't find anywhere else.",
             "discountPrice": "140.00",

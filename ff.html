@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/rw.png">
+    <link rel="stylesheet" href="assets/css/swap.css">
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media_query.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="slider.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DNY8TXTM7G"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-DNY8TXTM7G');
+    </script>
+<style>
+    /* CSS reset */
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 62.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+}
+
+/* Typography =======================*/
+
+/* Headings */
+
+/* Main heading for card's front cover */
+.card-front__heading {
+  /* font-size: 1.5rem; */
+  margin-top: .25rem;
+  font-size: 20px;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Main heading for inside page */
+.inside-page__heading { 
+  padding-bottom: 1rem; 
+  width: 100%;
+}
+
+/* Mixed */
+
+/* For both inside page's main heading and 'view me' text on card front cover */
+.inside-page__heading,
+.card-front__text-view {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-top: .2rem;
+  /* font-size: 20px; */
+  text-align: justify;
+}
+.inside-page__heading{
+    font-size: 20px;
+    text-align: start;
+}
+
+.inside-page__heading--city,
+.card-front__text-view--city { color: #0F63A5; }
+
+.inside-page__heading--ski,
+.card-front__text-view--ski { color: #0F63A5; }
+
+.inside-page__heading--beach,
+.card-front__text-view--beach { color: #0F63A5; }
+
+.inside-page__heading--camping,
+.card-front__text-view--camping { color: #0F63A5; }
+
+/* Front cover */
+
+.card-front__tp { color: #fafbfa; }
+
+/* For pricing text on card front cover */
+.card-front__text-price {
+  font-size: 1.2rem;
+  margin-top: -.2rem;
+}
+
+/* Back cover */
+
+/* For inside page's body text */
+.inside-page__text {
+  color: #333;
+  font-size: 14px;
+}
+
+/* Icons ===========================================*/
+
+.card-front__icon {
+  fill: #fafbfa;
+  font-size: 3vw;
+  height: 3.25rem;
+  margin-top: -.5rem;
+  width: 3.25rem;
+}
+
+/* Buttons =================================================*/
+
+.inside-page__btn {
+  background-color: transparent;
+  border: 3px solid;
+  border-radius: .5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  overflow: hidden;
+  padding: .7rem .75rem;
+  position: relative;
+  text-decoration: none;
+  transition: all .3s ease;
+  width: 90%;
+  z-index: 10;
+}
+
+.inside-page__btn::before { 
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleY(0);
+  transition: all .3s ease;
+  width: 100%;
+  z-index: -1;
+}
+
+.inside-page__btn--city { 
+  border-color: #0F63A5;
+  color: #0F63A5;
+}
+
+.inside-page__btn--city::before { 
+  background-color: #0F63A5;
+}
+
+.inside-page__btn--ski { 
+  border-color: #0F63A5;
+  color: #0F63A5;
+}
+
+.inside-page__btn--ski::before { 
+  background-color: #0F63A5;
+}
+
+.inside-page__btn--beach { 
+  border-color: #0F63A5;
+  color: #0F63A5;
+}
+
+.inside-page__btn--beach::before { 
+  background-color: #0F63A5;
+}
+
+.inside-page__btn--camping { 
+  border-color: #0F63A5;
+  color: #0F63A5;
+}
+
+.inside-page__btn--camping::before { 
+  background-color: #0F63A5;
+}
+
+.inside-page__btn:hover { 
+  color: #fafbfa;
+}
+
+.inside-page__btn:hover::before { 
+  transform: scaleY(1);
+}
+
+/* Layout Structure=========================================*/
+
+.main {
+  background: linear-gradient(
+    to bottom right,
+    #eee8dd,
+    #e3d9c6
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Container to hold all cards in one place */
+.card-area {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+/* Card ============================================*/
+
+/* Area to hold an individual card */
+.card-section {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+
+/* A container to hold the flip card and the inside page */
+.card {
+  background-color: rgba(0,0,0, .05);
+  box-shadow: -.1rem 1.7rem 6.6rem -3.2rem rgba(0,0,0,0.5);
+  height: 25rem;
+  position: relative;
+  transition: all 1s ease;
+  width: 19rem;
+}
+
+/* Flip card - covering both the front and inside front page */
+
+/* An outer container to hold the flip card. This excludes the inside page */
+.flip-card {
+  height: 25rem;
+  perspective: 100rem;
+  position: absolute;
+  right: 0;
+  transition: all 1s ease;
+  visibility: hidden;
+  width: 19rem;
+  z-index: 100;
+}
+
+/* The outer container's visibility is set to hidden. This is to make everything within the container NOT set to hidden  */
+/* This is done so content in the inside page can be selected */
+.flip-card > * {
+  visibility: visible;
+}
+
+/* An inner container to hold the flip card. This excludes the inside page */
+.flip-card__container {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transition: all 1s ease;
+  width: 100%;
+}
+
+.card-front,
+.card-back {
+  backface-visibility: hidden;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+/* Styling for the front side of the flip card */
+
+/* container for the front side */
+.card-front {
+  background-color: #fafbfa;
+  height: 25rem;
+  width: 19rem;
+}
+
+/* Front side's top section */
+.card-front__tp {
+  align-items: center;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 57% 90%, 50% 100%, 43% 90%, 0 90%);
+  display: flex;
+  flex-direction: column;
+  height: 21rem;
+  justify-content: center;
+  padding: .75rem;
+}
+
+.card-front__tp--city {
+  background: linear-gradient(90deg, rgba(15, 25, 38, 1) 0%, rgba(15, 99, 165, 1) 100%);
+}
+
+.card-front__tp--ski {
+  background: linear-gradient(90deg, rgba(15, 25, 38, 1) 0%, rgba(15, 99, 165, 1) 100%);
+}
+
+.card-front__tp--beach {
+  background: linear-gradient(90deg, rgba(15, 25, 38, 1) 0%, rgba(15, 99, 165, 1) 100%);
+}
+
+.card-front__tp--camping {
+  background: linear-gradient(90deg, rgba(15, 25, 38, 1) 0%, rgba(15, 99, 165, 1) 100%);
+}
+
+/* Front card's bottom section */
+.card-front__bt {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* Styling for the back side of the flip card */
+
+.card-back {
+  background-color: #fafbfa;
+  transform: rotateY(180deg);
+}
+
+/* Specifically targeting the <video> element */
+.video__container {
+  clip-path: polygon(0% 0%, 100% 0%, 90% 50%, 100% 100%, 0% 100%);
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Inside page */
+
+.inside-page {
+  background-color: #fafbfa;
+  box-shadow: inset 20rem 0px 5rem -2.5rem rgba(0,0,0,0.25);
+  height: 100%;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  transition: all 1s ease;
+  width: 19rem;
+  z-index: 1;
+}
+
+.inside-page__container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-align: center; 
+  width: 100%;
+  align-items: center;
+    justify-content: center;
+}
+
+/* Functionality ====================================*/
+
+/* This is to keep the card centered (within its container) when opened */
+.card:hover {
+  box-shadow:
+  -.1rem 1.7rem 6.6rem -3.2rem rgba(0,0,0,0.75);
+  width: 30rem;
+}
+
+/* When the card is hovered, the flip card container will rotate */
+.card:hover .flip-card__container {
+  transform: rotateY(-180deg);
+}
+
+/* When the card is hovered, the shadow on the inside page will shrink to the left */
+.card:hover .inside-page {
+  box-shadow: inset 1rem 0px 5rem -2.5rem rgba(0,0,0,0.1);
+}
+
+
+</style>
+</head>
+<body>
+    <main class=" container">
+        
+        <section class="card-area">
+
+            <!-- Card: City -->
+            <section class="card-section">
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--city">
+                               <h2 class="card-front__heading">
+                               Beginner’s Path to Real Estate Excellence
+                            </h2>
+                            
+                                </div>
+
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view card-front__text-view--city">
+                                        View me
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <video class="video__container" autoplay muted loop>
+                                    <source class="video__media" src="https://player.vimeo.com/external/370331493.sd.mp4?s=e90dcaba73c19e0e36f03406b47bbd6992dd6c1c&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inside-page">
+                        <div class="inside-page__container">
+                            <!-- <h3 class="inside-page__heading inside-page__heading--city">
+                              Beginner’s Path to Real Estate Excellence
+                            </h3> -->
+                            <p class="inside-page__text">
+                              Kickstart your real estate journey with essential skills and confidence.
+                            </p>
+                            <a href="#" class="inside-page__btn inside-page__btn--city">View deals</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card: Ski -->
+            <section class="card-section">
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--ski">
+                                               <h2 class="card-front__heading">
+                                                Real Estate Growth Accelerator
+                                               </h2>
+                                               
+                                </div>
+
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view card-front__text-view--ski">
+                                        View me
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="card-back">
+                                <video class="video__container" autoplay muted loop>
+                                    <source class="video__media" src="https://player.vimeo.com/external/195913085.sd.mp4?s=7c12f7a83de62a8900fd2ae049297070b9bc8a54&profile_id=164&oauth2_token_id=574477611" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inside-page">
+                        <div class="inside-page__container">
+                            <!-- <h3 class="inside-page__heading inside-page__heading--ski">
+                                For snow lovers
+                            </h3> -->
+                            <p class="inside-page__text">
+                              Take your real estate career to the next level with advanced techniques. 
+                            </p>
+                            <a href="#" class="inside-page__btn inside-page__btn--ski">View deals</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Card: Beach -->
+            <section class="card-section">
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--beach">
+
+                               
+                                               <h2 class="card-front__heading">
+                                                Luxury Sales Mastery
+                                               </h2>
+                                               <!-- <p class="card-front__text-price">
+                                                   From £229
+                                               </p> -->
+                                </div>
+
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view card-front__text-view--beach">
+                                        View me
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <video class="video__container" autoplay muted loop>
+                                    <source class="video__media" src="https://player.vimeo.com/external/332588783.sd.mp4?s=cab1817146dd72daa6346a1583cc1ec4d9e677c7&profile_id=139&oauth2_token_id=57447761" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inside-page">
+                        <div class="inside-page__container">
+                            <!-- <h3 class="inside-page__heading inside-page__heading--beach">
+                                For sun lovers
+                            </h3> -->
+                            <p class="inside-page__text">
+                              Master the art of luxury sales and branding to win affluent clientele.
+                            </p>
+                            <a href="#" class="inside-page__btn inside-page__btn--beach">View deals</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            
+          </section>
+          <section class="card-area">
+
+            <!-- Card: Camping -->
+               <section class="card-section">
+                  <div class="card">
+                      <div class="flip-card">
+                          <div class="flip-card__container">
+                              <div class="card-front">
+                                  <div class="card-front__tp card-front__tp--camping">
+  
+                                                 <h2 class="card-front__heading">
+                                                  Organizational Mentoring
+                                                 </h2>
+                                                 <!-- <p class="card-front__text-price">
+                                                     From £129
+                                                 </p> -->
+                                  </div>
+  
+                                  <div class="card-front__bt">
+                                      <p class="card-front__text-view card-front__text-view--camping">
+                                          View me
+                                      </p>
+                                  </div>
+                              </div>
+                              <div class="card-back">
+                                  <video class="video__container" autoplay muted loop>
+                                      <source class="video__media" src="https://player.vimeo.com/external/180185916.sd.mp4?s=c893e4770f87b00e0d6b5a1de138b01b02aaa085&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+                                  </video>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <div class="inside-page">
+                          <div class="inside-page__container">
+                              <!-- <h3 class="inside-page__heading inside-page__heading--camping">
+                                  For nature lovers
+                              </h3> -->
+                              <p class="inside-page__text">
+                                Transform your business into an iconic brand with leadership and strategy mentoring.
+                              </p>
+                              <a href="#" class="inside-page__btn inside-page__btn--camping">View deals</a>
+                          </div>
+                      </div>
+                  </div>
+              </section> 
+              <section class="card-section">
+                <div class="card">
+                    <div class="flip-card">
+                        <div class="flip-card__container">
+                            <div class="card-front">
+                                <div class="card-front__tp card-front__tp--camping">
+  
+                                               <h2 class="card-front__heading">
+                                                Exclusive Personalized Mentorship
+                                               </h2>
+                                               <!-- <p class="card-front__text-price">
+                                                   From £129
+                                               </p> -->
+                                </div>
+  
+                                <div class="card-front__bt">
+                                    <p class="card-front__text-view card-front__text-view--camping">
+                                        View me
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-back">
+                                <video class="video__container" autoplay muted loop>
+                                    <source class="video__media" src="https://player.vimeo.com/external/180185916.sd.mp4?s=c893e4770f87b00e0d6b5a1de138b01b02aaa085&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+  
+                    <div class="inside-page">
+                        <div class="inside-page__container">
+                            <!-- <h3 class="inside-page__heading inside-page__heading--camping">
+                                For nature lovers
+                            </h3> -->
+                            <p class="inside-page__text">
+                              Tailored 1-on-1 mentorship designed to help you achieve peak performance.
+                            </p>
+                            <a href="#" class="inside-page__btn inside-page__btn--camping">View deals</a>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+          </section>
+       
+    </main>
+</body>
+</html>

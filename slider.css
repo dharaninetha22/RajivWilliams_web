@@ -38,7 +38,7 @@
 }
 .slider .box .bg {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.2);
+  /* background-color: rgba(0, 0, 0, 0.2); */
   width: 65%;
   transform: skewX(7deg);
   position: absolute;
@@ -95,18 +95,22 @@
     transform: translateY(-9rem);
   }
 }
-.slider .box .details h1 {
+.slider .box .details h2 {
   font-size: 3.5rem;
-  font-weight: 500;
+  font-weight: 800;
   margin-bottom: 0.5rem;
   color: white;
+text-transform: uppercase;
+font-family: 'Federo', sans-serif;
 }
-.slider .box .details h2 {
+.slider .box .details h1 {
   display: inline-block;
   font-size: 2.3rem;
   color: #B5B4B4;
   margin-bottom: 2rem;
-  margin-left: 60px;
+text-transform: uppercase;
+
+  /* margin-left: 60px; */
 
 }
 @media only screen and (max-width: 800px) {
@@ -132,8 +136,8 @@
 }
 .slider .box1 {
   /* background-color: #500033; */
-  background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
-
+  /* background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%); */
+background-image: url('assets/images/home-img/theame2.jpg');
   
 }
 .slider .box1 .illustration .inner {
@@ -146,7 +150,9 @@
     background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
 }
 .slider .box2 {
-    background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
+    /* background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%); */
+background-image: url('assets/images/home-img/theame2.jpg');
+
 }
 .slider .box2 .illustration .inner {
   background-color: #0033FF;
@@ -158,7 +164,9 @@
     background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
 }
 .slider .box3 {
-    background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
+background-image: url('assets/images/home-img/theame2.jpg');
+   
+  /* background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%); */
 }
 .slider .box3 .illustration .inner {
   background-color: #00FF44;
@@ -170,7 +178,9 @@
     background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
 }
 .slider .box4 {
-    background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
+background-image: url('assets/images/home-img/theame2.jpg');
+
+    /* background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%); */
 }
 .slider .box4 .illustration .inner {
   background-color: #FF4E00;
@@ -182,7 +192,9 @@
     background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
 }
 .slider .box5 {
-    background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%);
+background-image: url('assets/images/home-img/theame2.jpg');
+
+    /* background: linear-gradient(90deg, rgba(16,54,91,1) 0%, rgba(15,25,38,1) 12%, rgba(20,80,136,1) 100%); */
 }
 .slider .box5 .illustration .inner {
   background-color: #8000FF;
